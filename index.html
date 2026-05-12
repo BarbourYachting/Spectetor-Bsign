@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>Spectetor • BSign Signing Center</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta name="description" content="Spectetor • BSign — Modern iOS Signing Center for IPA files, certificates, and updates.">
+<meta name="keywords" content="BSign, Spectetor, iOS signing, IPA, certificates, signing apps">
+<meta name="author" content="Spectetor Team">
+
+<meta property="og:title" content="Spectetor • BSign">
+<meta property="og:description" content="Fast, clean, modern signing center for IPA files and certificates.">
+<meta property="og:image" content="Bsign.png">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="Bsign.png">
+
+<style>
+/* ------------------------------ */
+/*          COLOR SYSTEM          */
+/* ------------------------------ */
+:root {
+    --bg: #ffffff;
+    --text: #222;
+    --card: #fafafa;
+    --border: #e8e8e8;
+    --shadow: rgba(0,0,0,0.04);
+    --hover: rgba(0,0,0,0.06);
+}
+
+body.dark {
+    --bg: #0d0f14;
+    --text: #e5e5e5;
+    --card: #161920;
+    --border: #2a2d33;
+    --shadow: rgba(0,0,0,0.4);
+    --hover: rgba(255,255,255,0.06);
+}
+
+/* ------------------------------ */
+/*          GLOBAL STYLE          */
+/* ------------------------------ */
+body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    touch-action: manipulation;
+    display: flex;
+    justify-content: center;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ------------------------------ */
+/*          ANIMATIONS            */
+/* ------------------------------ */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeScale {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ------------------------------ */
+/*         WRAPPER LAYOUT         */
+/* ------------------------------ */
+.wrapper {
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    gap: 25px;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeUp 0.7s ease;
+}
+
+/* ------------------------------ */
+/*        DARK/LIGHT BUTTON       */
+/* ------------------------------ */
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text);
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: 0.25s;
+    z-index: 999;
+    font-size: 13px;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.07);
+    opacity: 0.9;
+}
+
+/* ------------------------------ */
+/*             HEADER             */
+/* ------------------------------ */
+header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    animation: fadeScale 0.8s ease;
+}
+
+header img {
+    width: 180px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 10px var(--shadow));
+    transition: 0.3s;
+}
+
+header img:hover {
+    transform: scale(1.07);
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 900;
+    margin: 0;
+    color: var(--text);
+    letter-spacing: 1px;
+    animation: slideRight 0.8s ease;
+}
+
+header p {
+    font-size: 15px;
+    color: var(--text);
+    opacity: 0.7;
+    margin-top: 12px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: slideLeft 0.9s ease;
+}
+
+/* ------------------------------ */
+/*            SECTIONS            */
+/* ------------------------------ */
+.section {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: 0.25s;
+    animation: fadeUp 0.7s ease;
+}
+
+.section:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 8px 22px var(--hover);
+}
+
+.section h2 {
+    margin: 0 0 18px 0;
+    font-size: 22px;
+    color: var(--text);
+    border-left: 5px solid #3b82f6;
+    padding-left: 12px;
+    font-weight: 700;
+    animation: slideRight 0.7s ease;
+}
+
+/* ------------------------------ */
+/*              ITEMS             */
+/* ------------------------------ */
+.item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: fadeUp 0.6s ease;
+}
+
+.item img {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.item img:hover {
+    transform: scale(1.12) rotate(2deg);
+}
+
+.item a:hover {
+    opacity: 0.7;
+    transform: translateX(3px);
+}
+
+.empty {
+    text-align: center;
+    padding: 25px 0;
+    color: var(--text);
+    opacity: 0.6;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* ------------------------------ */
+/*           NEWS PANEL           */
+/* ------------------------------ */
+.news {
+    width: 320px;
+    background: var(--card);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 12px var(--shadow);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+    box-sizing: border-box;
+    animation: fadeScale 0.8s ease;
+}
+
+.news h3 {
+    border-left: 5px solid #3b82f6;
+    padding-left: 10px;
+    animation: slideRight 0.7s ease;
+}
+
+.news p {
+    animation: fadeUp 0.7s ease;
+}
+
+/* ------------------------------ */
+/*             FOOTER             */
+/* ------------------------------ */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.8s ease;
+}
+
+footer img {
+    width: 40px; /* ← صغّرت التلغرام هون */
+    cursor: pointer;
+    opacity: 0.9;
+    transition: 0.2s;
+}
+
+footer img:hover {
+    transform: scale(1.1);
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--text);
+    opacity: 0.6;
+}
+
+/* ------------------------------ */
+/*           RESPONSIVE           */
+/* ------------------------------ */
+@media (max-width: 900px) {
+    .wrapper {
+        flex-direction: column;
+    }
+    .news {
+        width: 100%;
+        position: static;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- NEW SMALL LUXURY TOGGLE BUTTON -->
+<div class="toggle-btn" id="modeBtn" onclick="toggleMode()">Dark</div>
+
+<div class="wrapper">
+
+    <div class="main">
+
+        <header>
+            <img src="Bsign.png" alt="BSign Logo">
+
+            <h1>Spectetor • BSign Signing Center</h1>
+            <p>
+                We renew certificates, update signing apps, upload new IPA files,  
+                and keep everything running smoothly and on time.  
+                Your time matters — and we make sure everything is ready when you need it.
+            </p>
+        </header>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>📁 Unsigned IPA Files</h2>
+
+                <div class="item">
+                    <img src="Placeholder.png" alt="App Icon">
+                    <span>Example App 1.0</span>
+                    <a href="#">Download</a>
+                </div>
+
+                <div class="empty">More files will be added soon</div>
+            </div>
+
+            <div class="section">
+                <h2>🔐 Signed IPA Files</h2>
+
+                <div class="item">
+                    <img src="Placeholder.png" alt="Signed Icon">
+                    <span>No signed files yet</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎫 Free Certificates</h2>
+
+                <div class="item">
+                    <img src="Placeholder.png" alt="Certificate Icon">
+                    <span>No certificates added yet</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🛠️ Signing Apps</h2>
+
+                <div class="item">
+                    <img src="Placeholder.png" alt="App Icon">
+                    <span>No apps added yet</span>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <a href="https://t.me/YOUR_TELEGRAM" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+            </a>
+            <p>Contact us on Telegram for support</p>
+
+            <p style="margin-top:20px; font-size:12px; opacity:0.5;">
+                This website does not host or distribute copyrighted content.  
+                All files are external user-provided links.  
+                BSign & Spectetor are independent signing platforms.
+            </p>
+        </footer>
+
+    </div>
+
+    <div class="news">
+        <h3>📢 Latest Updates</h3>
+
+        <p>• Certificate renewals updated daily.</p>
+        <p>• New signing apps coming soon.</p>
+        <p>• IPA files refreshed and optimized.</p>
+        <p>• Stay tuned for more updates.</p>
+    </div>
+
+</div>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+
+    const btn = document.getElementById("modeBtn");
+
+    if (document.body.classList.contains("dark")) {
+        btn.textContent = "Light";
+        localStorage.setItem("mode", "dark");
+    } else {
+        btn.textContent = "Dark";
+        localStorage.setItem("mode", "light");
+    }
+}
+
+if (localStorage.getItem("mode") === "dark") {
+    document.body.classList.add("dark");
+    document.getElementById("modeBtn").textContent = "Light";
+}
+</script>
+
+</body>
+</html>
