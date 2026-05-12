@@ -19,9 +19,6 @@
 <link rel="icon" type="image/png" href="Bsign.png">
 
 <style>
-/* ------------------------------ */
-/*          COLOR SYSTEM          */
-/* ------------------------------ */
 :root {
     --bg: #ffffff;
     --text: #222;
@@ -40,9 +37,6 @@ body.dark {
     --hover: rgba(255,255,255,0.06);
 }
 
-/* ------------------------------ */
-/*          GLOBAL STYLE          */
-/* ------------------------------ */
 body {
     margin: 0;
     font-family: 'Inter', Arial, sans-serif;
@@ -55,9 +49,6 @@ body {
     transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* ------------------------------ */
-/*          ANIMATIONS            */
-/* ------------------------------ */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -78,9 +69,6 @@ body {
     to { opacity: 1; transform: translateX(0); }
 }
 
-/* ------------------------------ */
-/*         WRAPPER LAYOUT         */
-/* ------------------------------ */
 .wrapper {
     width: 100%;
     max-width: 1300px;
@@ -91,9 +79,6 @@ body {
     animation: fadeUp 0.7s ease;
 }
 
-/* ------------------------------ */
-/*        DARK/LIGHT BUTTON       */
-/* ------------------------------ */
 .toggle-btn {
     position: fixed;
     top: 20px;
@@ -116,9 +101,6 @@ body {
     opacity: 0.9;
 }
 
-/* ------------------------------ */
-/*             HEADER             */
-/* ------------------------------ */
 header {
     text-align: center;
     padding: 40px 20px 20px;
@@ -158,9 +140,6 @@ header p {
     animation: slideLeft 0.9s ease;
 }
 
-/* ------------------------------ */
-/*            SECTIONS            */
-/* ------------------------------ */
 .section {
     background: var(--card);
     padding: 25px;
@@ -187,9 +166,6 @@ header p {
     animation: slideRight 0.7s ease;
 }
 
-/* ------------------------------ */
-/*              ITEMS             */
-/* ------------------------------ */
 .item {
     padding: 12px 0;
     border-bottom: 1px solid var(--border);
@@ -212,8 +188,19 @@ header p {
     transform: scale(1.12) rotate(2deg);
 }
 
+.item a {
+    margin-left: auto;
+    background: #3b82f6;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
 .item a:hover {
-    opacity: 0.7;
+    opacity: 0.8;
     transform: translateX(3px);
 }
 
@@ -226,9 +213,6 @@ header p {
     font-style: italic;
 }
 
-/* ------------------------------ */
-/*           NEWS PANEL           */
-/* ------------------------------ */
 .news {
     width: 320px;
     background: var(--card);
@@ -253,9 +237,6 @@ header p {
     animation: fadeUp 0.7s ease;
 }
 
-/* ------------------------------ */
-/*             FOOTER             */
-/* ------------------------------ */
 footer {
     text-align: center;
     padding: 40px 20px;
@@ -265,7 +246,7 @@ footer {
 }
 
 footer img {
-    width: 40px; /* ← صغّرت التلغرام هون */
+    width: 40px;
     cursor: pointer;
     opacity: 0.9;
     transition: 0.2s;
@@ -282,9 +263,6 @@ footer p {
     opacity: 0.6;
 }
 
-/* ------------------------------ */
-/*           RESPONSIVE           */
-/* ------------------------------ */
 @media (max-width: 900px) {
     .wrapper {
         flex-direction: column;
@@ -298,7 +276,6 @@ footer p {
 </head>
 <body>
 
-<!-- NEW SMALL LUXURY TOGGLE BUTTON -->
 <div class="toggle-btn" id="modeBtn" onclick="toggleMode()">Dark</div>
 
 <div class="wrapper">
@@ -340,20 +317,24 @@ footer p {
             </div>
 
             <div class="section">
+                <h2>🛠️ Signing Apps</h2>
+
+                <div class="item">
+                    <img src="Bsign.png" alt="App Icon">
+                    <span>Bsign 1.0 — Install App</span>
+
+                    <a href="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/BarbourYachting/Spectetor-Bsign/refs/heads/main/manifest.plist">
+                        Install
+                    </a>
+                </div>
+            </div>
+
+            <div class="section">
                 <h2>🎫 Free Certificates</h2>
 
                 <div class="item">
                     <img src="Placeholder.png" alt="Certificate Icon">
                     <span>No certificates added yet</span>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>🛠️ Signing Apps</h2>
-
-                <div class="item">
-                    <img src="Placeholder.png" alt="App Icon">
-                    <span>No apps added yet</span>
                 </div>
             </div>
 
