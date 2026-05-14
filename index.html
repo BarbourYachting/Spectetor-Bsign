@@ -406,14 +406,60 @@ footer p {
         
     </div>
 
-    <footer style="text-align:center; padding:20px;">
-  <img src="/assets/sp3cterios-signature-white.png"
-       alt="Sp3cterios Signature"
-       style="width:220px; height:auto; mix-blend-mode:screen; filter:drop-shadow(0 0 6px rgba(255,255,255,0.4)); transition:0.3s;">
-  <p style="font-size:12px; color:var(--text-secondary); margin-top:8px;">
-    All operations are legal and compliant with all terms and conditions.
-  </p>
+    <footer class="spectetor-footer">
+  <img src="/assets/signature.png" class="signature" alt="Sp3cterios Signature">
 </footer>
+
+<style>
+.spectetor-footer {
+  text-align: center;
+  padding: 25px 0;
+}
+
+/* التوقيع الأساسي */
+.signature {
+  width: 120px; /* الحجم الصغير */
+  height: auto;
+  transition: 0.4s ease;
+  filter: invert(0); /* Light Mode = أسود */
+  position: relative;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Dark Mode = أبيض */
+@media (prefers-color-scheme: dark) {
+  .signature {
+    filter: invert(1);
+  }
+}
+
+/* لمعة تمر فوق التوقيع */
+.signature::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+  animation: shineMove 2.5s linear infinite;
+  pointer-events: none;
+}
+
+/* حركة اللمعة */
+@keyframes shineMove {
+  0% { left: -120%; }
+  100% { left: 150%; }
+}
+
+/* نبض خفيف للتوقيع */
+@keyframes glowPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+</style>
+
 
     <footer class="spectetor-footer">
   <p class="rights">© 2026 Spectetor — All rights reserved.</p>
