@@ -407,7 +407,10 @@ footer p {
     </div>
 
     <footer class="spectetor-footer">
-  <p class="signature">𝒮𝓅𝟥𝒸𝓉𝑒𝓇𝒾𝑜𝓈</p>
+  <div class="signature-box">
+    <span class="signature-text">𝒮𝓅𝑒𝒸𝓉𝑒𝓉𝑜𝓇</span>
+    <div class="left-line"></div>
+  </div>
 </footer>
 
 <style>
@@ -416,23 +419,32 @@ footer p {
   padding: 25px 0;
 }
 
-/* التوقيع النصي */
-.signature {
-  font-size: 26px;          /* حجم التوقيع */
-  font-weight: 400;
-  margin: 0;
-  color: #000;              /* Light Mode = أسود */
-  font-family: "Times New Roman", serif;
-  letter-spacing: 1px;
+/* النص */
+.signature-text {
+  font-size: 28px;
+  font-weight: 700;
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: #000; /* Light (الافتراضي) */
+  transition: 0.2s ease;
 }
 
-/* Dark Mode = أبيض */
-@media (prefers-color-scheme: dark) {
-  .signature {
-    color: #fff;
-  }
+/* Dark Mode لما يكون عندك data-theme="dark" على html أو body */
+[data-theme="dark"] .signature-text {
+  color: #fff;
+}
+
+/* الخط المائل تحت النص */
+.left-line {
+  width: 60px;
+  height: 2px;
+  background: currentColor;
+  transform: skewX(-25deg);
+  margin: 6px auto 0 auto;
+  opacity: 0.8;
 }
 </style>
+
+
 
 
 
