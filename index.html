@@ -406,6 +406,85 @@ footer p {
         
     </div>
 
+    <footer style="text-align:center; padding:20px;">
+  <img src="/assets/sp3cterios-signature-white.png"
+       alt="Sp3cterios Signature"
+       style="width:220px; height:auto; mix-blend-mode:screen; filter:drop-shadow(0 0 6px rgba(255,255,255,0.4)); transition:0.3s;">
+  <p style="font-size:12px; color:var(--text-secondary); margin-top:8px;">
+    All operations are legal and compliant with all terms and conditions.
+  </p>
+</footer>
+
+    <footer class="spectetor-footer">
+  <p class="rights">© 2026 Spectetor — All rights reserved.</p>
+  <div class="line"></div>
+</footer>
+
+<style>
+.spectetor-footer {
+  text-align: center;
+  padding: 25px 0;
+  position: relative;
+}
+
+/* نص الحقوق */
+.spectetor-footer .rights {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0;
+  letter-spacing: 0.8px;
+  animation: pulseText 3s ease-in-out infinite;
+}
+
+/* الخط تحت الحقوق */
+.spectetor-footer .line {
+  width: 180px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--text-secondary), transparent);
+  margin: 8px auto 0 auto;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  animation: expandLine 4s ease-in-out infinite;
+}
+
+/* لمعة تمر فوق الخط */
+.spectetor-footer .line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, white, transparent);
+  opacity: 0.4;
+  animation: shine 2.5s linear infinite;
+}
+
+/* حركة النص */
+@keyframes pulseText {
+  0% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+  100% { opacity: 0.5; transform: scale(1); }
+}
+
+/* حركة الخط */
+@keyframes expandLine {
+  0% { width: 120px; opacity: 0.5; }
+  50% { width: 200px; opacity: 1; }
+  100% { width: 120px; opacity: 0.5; }
+}
+
+/* حركة اللمعة */
+@keyframes shine {
+  0% { left: -50%; }
+  100% { left: 120%; }
+}
+</style>
+
+
+
+
 </div>
 
 <script>
