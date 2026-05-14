@@ -407,28 +407,29 @@ footer p {
     </div>
 
     <footer class="spectetor-footer">
-  <img src="/assets/signature.PNG" class="signature" alt="Sp3cterios Signature">
+  <p class="signature">𝒮𝓅𝟥𝒸𝓉𝑒𝓇𝒾𝑜𝓈</p>
 </footer>
 
 <style>
-/* الفوتر */
 .spectetor-footer {
   text-align: center;
   padding: 25px 0;
 }
 
-/* التوقيع */
+/* التوقيع النصي */
 .signature {
-  width: 120px;      /* حجم التوقيع */
-  height: auto;
-  filter: brightness(0);   /* Light Mode = أسود */
-  transition: 0.3s ease;
+  font-size: 26px;          /* حجم التوقيع */
+  font-weight: 400;
+  margin: 0;
+  color: #000;              /* Light Mode = أسود */
+  font-family: "Times New Roman", serif;
+  letter-spacing: 1px;
 }
 
 /* Dark Mode = أبيض */
 @media (prefers-color-scheme: dark) {
   .signature {
-    filter: brightness(0) invert(1);
+    color: #fff;
   }
 }
 </style>
